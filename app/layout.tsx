@@ -1,4 +1,3 @@
-import '../styles/globals.css'
 
 export const metadata = {
   title: 'E-commerce',
