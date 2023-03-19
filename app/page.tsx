@@ -5,20 +5,16 @@ import { client } from '../lib/sanity.client';
 import { previewData } from 'next/headers';
 import { groq } from 'next-sanity';
 import PreviewSuspense from '../components/PreviewSuspense'
+import PreviewProductList from '../components/PreviewProductList'
 import ProductList from '../components/ProductList';
 
 
 const queryProducts = groq`
-    *[_type=='product'] {
-        ...,
-    } | order(_createdAt desc)
+    *[_type=='product']
 `;
 
 const queryBanner = groq`
-    *[_type=='banner'] {
-        ...,
-        smallText ->,
-    } | order(_createdAt desc)
+    *[_type=='banner']
 `;
 
 export default async function HomePage() {
@@ -30,16 +26,17 @@ export default async function HomePage() {
                         Loading Preview Data..
                     </p>
                 </div>
-            }>
-                {/*
-                <PreviewProductList query={query}></PreviewProductList> */}
+            }
+            >
+                {
+                <PreviewProductList query={queryProducts}></PreviewProductList>}
             </PreviewSuspense>
-        ) 
+        );
     }
 
     const products = await client.fetch(queryProducts);
     const banner = await client.fetch(queryBanner);
-    console.log(banner[0].smallText)
+    console.log(products[0].smallText)
     return (
         <>
             <HeroBanner />

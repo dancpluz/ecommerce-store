@@ -10,7 +10,7 @@ type Props = {
 export default function PreviewProductList({ query }: Props) {
   const products = usePreview(null, query);
 
-  //console.log("LOADING Products...", products)
+  console.log("LOADING Products...", products)
   return (<ProductList products={products} />
   );
 }

@@ -1,8 +1,5 @@
-type Props = {
-  products: Post[];
-};
 
-export default function ProductList({ products }: Props) {
+export default function ProductList() {
   return (
     <div>ProductList</div>
   )
