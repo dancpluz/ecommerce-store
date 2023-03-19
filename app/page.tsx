@@ -9,7 +9,7 @@ import PreviewProductList from '../components/PreviewProductList'
 import ProductList from '../components/ProductList';
 
 
-const queryProducts = groq`
+const query = groq`
     *[_type=='product']
 `;
 
@@ -29,16 +29,18 @@ export default async function HomePage() {
             }
             >
                 {
-                <PreviewProductList query={queryProducts}></PreviewProductList>}
+                <PreviewProductList query={query}></PreviewProductList>}
             </PreviewSuspense>
         );
     }
 
-    const products = await client.fetch(queryProducts);
+    const posts = await client.fetch(query);
     const banner = await client.fetch(queryBanner);
-    console.log(products[0].smallText)
+   // console.log(products[0].smallText)
     return (
         <>
+            <ProductList posts={posts} />
+
             <HeroBanner />
 
             <div className='products-heading'>
@@ -46,7 +48,8 @@ export default async function HomePage() {
                 <p>Speakers of many variations</p>
             </div>
             <div className='products-container'>
-                {products?.map((product) => product.name)}
+                {//products?.map((product) => product.name)}
+}
             </div>
             
             <FooterBanner />
