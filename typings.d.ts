@@ -6,8 +6,8 @@ type Base = {
   _updatedAt: string;
 };
 
-interface Post extends Base {
-  image: Image;
+interface Product extends Base {
+  image: Image[];
   name: string;
   slug: Slug;
   price: string;

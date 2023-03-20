@@ -21,7 +21,6 @@ export default function HeroBanner({ banner }: Props) {
           width={800}
           height={800}
         />
-
         <div>
           <Link href={`/product/${banner.product}`}>
             <button type='button'>{banner.buttonText}</button>

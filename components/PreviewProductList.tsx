@@ -8,9 +8,8 @@ type Props = {
 };
 
 export default function PreviewProductList({ query }: Props) {
-  const posts = usePreview(null, query);
+  const products_all = usePreview(null, query);
 
-  console.log("LOADING Products...", posts)
-  return (<ProductList posts={posts} />
+  return (<ProductList products={products_all} />
   );
 }

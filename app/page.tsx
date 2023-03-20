@@ -1,6 +1,6 @@
 
 import '../styles/globals.css'
-import { Product, FooterBanner, Footer, HeroBanner } from '../components';
+import { FooterBanner, Footer, HeroBanner } from '../components';
 import { client } from '../lib/sanity.client';
 import { previewData } from 'next/headers';
 import { groq } from 'next-sanity';
@@ -9,7 +9,7 @@ import PreviewProductList from '../components/PreviewProductList'
 import ProductList from '../components/ProductList';
 
 
-const query = groq`
+const queryProduct = groq`
     *[_type=='product']
 `;
 
@@ -22,19 +22,19 @@ export default async function HomePage() {
         return (
             <PreviewSuspense fallback={
                 <div role='status'>
-                    <p className='text-center text-lg animate-pulse text-[#F7AB0A]'>
+                    <p className='text-center text-lg animate-pulse text-[#f70a0a]'>
                         Loading Preview Data..
                     </p>
                 </div>
             }
             >
                 {
-                <PreviewProductList query={query}></PreviewProductList>}
+                <PreviewProductList query={queryProduct}></PreviewProductList>}
             </PreviewSuspense>
         );
     }
 
-    const posts = await client.fetch(query);
+    const products = await client.fetch(queryProduct);
     const banner = await client.fetch(queryBanner);
 
     return (
@@ -45,7 +45,8 @@ export default async function HomePage() {
                 <h2>Best Selling Products</h2>
                 <p>Speakers of many variations</p>
             </div>
-            <ProductList posts={posts}/>
+
+            <ProductList products={products}/>
             
             <FooterBanner />
         </>
