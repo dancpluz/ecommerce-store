@@ -36,21 +36,16 @@ export default async function HomePage() {
 
     const posts = await client.fetch(query);
     const banner = await client.fetch(queryBanner);
-   // console.log(products[0].smallText)
+
     return (
         <>
-            <ProductList posts={posts} />
-
-            <HeroBanner />
+            <HeroBanner banner={banner[0]} />
 
             <div className='products-heading'>
                 <h2>Best Selling Products</h2>
                 <p>Speakers of many variations</p>
             </div>
-            <div className='products-container'>
-                {//products?.map((product) => product.name)}
-}
-            </div>
+            <ProductList posts={posts}/>
             
             <FooterBanner />
         </>

@@ -4,7 +4,8 @@ type Props = {
 }
 
 export default function ProductList({posts}: Props) {
+  
   return (
-    <div>ProductList</div>
+    <div className='products-container'>ProductList</div>
   )
 }
