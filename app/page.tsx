@@ -43,12 +43,12 @@ export default async function HomePage() {
 
             <div className='products-heading'>
                 <h2>Best Selling Products</h2>
-                <p>Speakers of many variations</p>
+                <p>Comando Vermelho</p>
             </div>
 
             <ProductList products={products}/>
             
-            <FooterBanner />
+            <FooterBanner footerBanner={banner && banner[0]} />
         </>
     );
 }

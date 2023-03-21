@@ -15,7 +15,7 @@ interface Product extends Base {
 }
 
 interface Banner extends Base {
-  image: Image;
+  image: Image[];
   buttonText: string;
   product: string;
   desc: string;

@@ -6,20 +6,21 @@ type Props = {
   product: Product;
 }
 
-export default function Product({ product }: Props) {
-  console.log(product)
+export default function Product({ product: {_id, slug, image, name, price} }: Props) {
+
   return (
     <div>
-      <Link href={`/product/${product.slug.current}`}>
+      <Link href={`/produto/${slug.current}`}>
         <div className='product-card'>
           <Image
             className='product-image'
-            src={urlFor(product.image && product.image[0]).url()}
-            alt={product._id}
+            src={urlFor(image && image[0]).url()}
+            alt={_id}
             width={250}
             height={250}
           />
-          <p className='product-name'>{product.name}</p>
+          <p className='product-name'>{name}</p>
+          <p className='product-price'>R${price}</p>
         </div>
       </Link>
     </div>
