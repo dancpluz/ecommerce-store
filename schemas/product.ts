@@ -1,11 +1,11 @@
 export default {
     name: 'product',
-    title: 'Product',
+    title: 'Produto',
     type: 'document',
     fields: [
         {
             name: 'image',
-            title: 'Image',
+            title: 'Imagem',
             type: 'array',
             of: [{ type: 'image' }],
             option: {
@@ -19,7 +19,7 @@ export default {
         },
         {
             name: 'slug',
-            title: 'Slug',
+            title: 'Slug (produto/"slug")',
             type: 'slug',
             options: {
                 source: 'name',
