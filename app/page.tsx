@@ -1,5 +1,3 @@
-
-import '../styles/globals.css'
 import { FooterBanner, Footer, HeroBanner } from '../components';
 import { client } from '../lib/sanity.client';
 import { previewData } from 'next/headers';

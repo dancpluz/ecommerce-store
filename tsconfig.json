@@ -29,7 +29,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, "lib/sanity.client.js", "app/page.tsx"  ],
+, "lib/sanity.client.js", "app/page.tsx", "pages/produto/[slug].tsx", "app/produto/[slug]/page.tsx"  ],
   "exclude": [
     "node_modules"
   ]
