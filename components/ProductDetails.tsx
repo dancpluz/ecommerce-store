@@ -23,7 +23,7 @@ export default function ProductDetails({product: {image,_id, name, details, pric
       <div className='product-detail-container'>
         <div className='image-container'>
           <Image
-            className='product-image'
+            className='product-detail-image'
             src={urlFor(image && image[index]).url()}
             alt={_id}
             width={300}
@@ -32,13 +32,15 @@ export default function ProductDetails({product: {image,_id, name, details, pric
         </div>
         <div className='small-images-container'>
           {image?.map((item, i) => (
-            <Image
-              className='product-image'
-              src={urlFor(item).url()}
-              alt={_id}
-              width={250}
-              height={250}
-            />
+            <a onMouseEnter={() => setIndex(i)}>
+              <Image
+                className={i === index ? 'small-image selected-image' : 'small-image'}
+                src={urlFor(item).url()}
+                alt={_id}
+                width={100}
+                height={100}
+              />
+            </a>
           ))}
         </div>
         <div className='product-detail-desc'>
@@ -59,19 +61,19 @@ export default function ProductDetails({product: {image,_id, name, details, pric
           <div className='quantity'>
             <h3>Quantidade:</h3>
             <p className='quantity-desc'>
-              <span className='minus' onClick=''><RemoveIcon /></span>
-              <span className='num' onClick=''>0</span>
-              <span className='plus' onClick=''><AddIcon /></span>
+              <span className='minus' onClick={() => ''}><RemoveIcon /></span>
+              <span className='num' onClick={() => ''}>0</span>
+              <span className='plus' onClick={() => ''}><AddIcon /></span>
 
             </p>
           </div>
           <div className='buttons'>
-            <button type='button' className='add-to-cart' onClick=''>Adicionar à Sacola</button>
-            <button type='button' className='buy-now' onClick=''>Comprar Agora</button>
+            <button type='button' className='add-to-cart' onClick={() => ''}>Adicionar à Sacola</button>
+            <button type='button' className='buy-now' onClick={() => ''}>Comprar Agora</button>
           </div>
         </div>
       </div>
-      <div class='maylike-products-wrapper'>
+      <div className='maylike-products-wrapper'>
           <h2>Você pode gostar também</h2>
           <div className='marquee'>
             <div className='maylike-products-container track'>
