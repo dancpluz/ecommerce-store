@@ -78,9 +78,9 @@ span.text-red {
 }
 
 .logo {
-  color: gray;
-  font-size: 18px;
-
+  color: rgb(255, 0, 0);
+  font-size: 48px;
+  margin-top: 20vw;
 }
 
 .cart-icon {
