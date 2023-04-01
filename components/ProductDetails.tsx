@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useStateContext } from '../context/StateContext'
 import Image from 'next/image';
 import Product from './Product';
 import RemoveIcon from '@mui/icons-material/Remove';
@@ -17,6 +18,7 @@ type Props = {
 
 export default function ProductDetails({product: {image,_id, name, details, price}, slug, products}: Props) {
   const [index, setIndex] = useState(0);
+  const { decQty, incQty, qty } = useStateContext();
 
   return (
     <>
@@ -61,9 +63,9 @@ export default function ProductDetails({product: {image,_id, name, details, pric
           <div className='quantity'>
             <h3>Quantidade:</h3>
             <p className='quantity-desc'>
-              <span className='minus' onClick={() => ''}><RemoveIcon /></span>
-              <span className='num' onClick={() => ''}>0</span>
-              <span className='plus' onClick={() => ''}><AddIcon /></span>
+              <span className='minus' onClick={decQty}><RemoveIcon /></span>
+              <span className='num' onClick={() => ''}>{qty}</span>
+              <span className='plus' onClick={incQty}><AddIcon /></span>
 
             </p>
           </div>
