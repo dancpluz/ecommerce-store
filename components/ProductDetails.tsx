@@ -4,10 +4,7 @@ import { useState } from 'react';
 import { useStateContext } from '../context/StateContext'
 import Image from 'next/image';
 import Product from './Product';
-import RemoveIcon from '@mui/icons-material/Remove';
-import AddIcon from '@mui/icons-material/Add';
-import StarIcon from '@mui/icons-material/Star';
-import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
+import { Remove, Add, Star, StarBorderOutlined } from '@mui/icons-material/';
 import urlFor from '../lib/urlFor';
 
 type Props = {
@@ -49,11 +46,11 @@ export default function ProductDetails({product, product: {image,_id, name, deta
           <h1>{name}</h1>
           <div className='reviews'>
             <div>
-              <StarIcon />
-              <StarIcon />
-              <StarBorderOutlinedIcon />
-              <StarBorderOutlinedIcon />
-              <StarBorderOutlinedIcon />
+              <Star />
+              <Star />
+              <StarBorderOutlined />
+              <StarBorderOutlined />
+              <StarBorderOutlined />
             </div>
             <p>(20)</p>
           </div>
@@ -63,10 +60,9 @@ export default function ProductDetails({product, product: {image,_id, name, deta
           <div className='quantity'>
             <h3>Quantidade:</h3>
             <p className='quantity-desc'>
-              <span className='minus' onClick={decQty}><RemoveIcon /></span>
-              <span className='num' onClick={() => ''}>{qty}</span>
-              <span className='plus' onClick={incQty}><AddIcon /></span>
-
+              <span className='minus' onClick={decQty}><Remove /></span>
+              <span className='num'>{qty}</span>
+              <span className='plus' onClick={incQty}><Add /></span>
             </p>
           </div>
           <div className='buttons'>
