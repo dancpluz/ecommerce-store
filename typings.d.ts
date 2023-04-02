@@ -12,6 +12,7 @@ interface Product extends Base {
   slug: Slug;
   price: number;
   details: string;
+  quantity: number;
 }
 
 interface Banner extends Base {

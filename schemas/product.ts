@@ -1,6 +1,6 @@
 export default {
     name: 'product',
-    title: 'Produto',
+    title: 'Produtos Brechó',
     type: 'document',
     fields: [
         {
