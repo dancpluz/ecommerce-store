@@ -53,3 +53,13 @@ type StateContextType = {
   decQty: () => void;
   onAdd: (product: Product, quantity: number) => void;
 };
+
+declare namespace NodeJS {
+  interface ProcessEnv {
+    STRIPE_SECRET_KEY: string;
+    SANITY_API_TOKEN: string;
+    NEXT_PUBLIC_SANITY_API_VERSION: string;
+    NEXT_PUBLIC_SANITY_DATASET: string;
+    NEXT_PUBLIC_SANITY_PROJECT_ID: string;
+  }
+}

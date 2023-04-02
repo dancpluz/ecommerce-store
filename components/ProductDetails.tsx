@@ -60,7 +60,7 @@ export default function ProductDetails({product, product: {image,_id, name, deta
           <div className='quantity'>
             <h3>Quantidade:</h3>
             <p className='quantity-desc'>
-              <span className='minus' onClick={decQty}><Remove /></span>
+              <span className='minus' onClick={decQty}><Remove fontSize="small" /></span>
               <span className='num'>{qty}</span>
               <span className='plus' onClick={incQty}><Add /></span>
             </p>
