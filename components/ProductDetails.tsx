@@ -16,9 +16,9 @@ type Props = {
   slug: string;
 };
 
-export default function ProductDetails({product: {image,_id, name, details, price}, slug, products}: Props) {
+export default function ProductDetails({product, product: {image,_id, name, details, price}, slug, products}: Props) {
   const [index, setIndex] = useState(0);
-  const { decQty, incQty, qty } = useStateContext();
+  const { decQty, incQty, qty, onAdd } = useStateContext();
 
   return (
     <>
@@ -70,7 +70,7 @@ export default function ProductDetails({product: {image,_id, name, details, pric
             </p>
           </div>
           <div className='buttons'>
-            <button type='button' className='add-to-cart' onClick={() => ''}>Adicionar à Sacola</button>
+            <button type='button' className='add-to-cart' onClick={() => onAdd(product, qty)}>Adicionar à Sacola</button>
             <button type='button' className='buy-now' onClick={() => ''}>Comprar Agora</button>
           </div>
         </div>

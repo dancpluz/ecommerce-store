@@ -10,7 +10,7 @@ interface Product extends Base {
   image: Image[];
   name: string;
   slug: Slug;
-  price: string;
+  price: number;
   details: string;
 }
 
@@ -41,3 +41,14 @@ interface Slug {
   _type: 'slug';
   current: string;
 }
+
+type StateContextType = {
+  showCart: boolean;
+  cartItems: Product[];
+  totalPrice: number;
+  totalQuantities: number;
+  qty: number;
+  incQty: () => void;
+  decQty: () => void;
+  onAdd: (product: Product, quantity: number) => void;
+};

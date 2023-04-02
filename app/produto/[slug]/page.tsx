@@ -2,7 +2,6 @@ import { groq } from 'next-sanity';
 import { client } from '../../../lib/sanity.client';
 import ProductDetails from '../../../components/ProductDetails'
 
-
 type Props = {
   params: {
     slug: string;
