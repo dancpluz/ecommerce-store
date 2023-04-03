@@ -7,10 +7,26 @@ import { ShoppingBagOutlined, Remove, Add, ArrowBack, HighlightOff } from '@mui/
 import toast from 'react-hot-toast';
 import { useStateContext } from '../context/StateContext';
 import urlFor from '../lib/urlFor';
+import getStripe from '../lib/getStripe';
 
 export default function Cart() {
   const cartRef = useRef(null);
   const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuantity, onRemove } = useStateContext();
+  const handleCheckout = () => {
+    const stripe = await getStripe();
+
+    const response = await fetch('/api/stripe', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(cartItems),
+    });
+
+    if (response.statusCode === 500) return;
+
+    const data = null;
+  }
 
   return (
     <div className='cart-wrapper' ref={cartRef}>
@@ -84,7 +100,7 @@ export default function Cart() {
               <h3>${totalPrice}</h3>
             </div>
             <div className='btn-container'>
-              <button type='button' className='btn' onClick={()=>''}>
+              <button type='button' className='btn' onClick={handleCheckout()}>
                 Concluir Compra
               </button>
 
