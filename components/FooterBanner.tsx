@@ -28,8 +28,8 @@ export default function FooterBanner({ footerBanner: {_id, discount, largeText1,
           className='footer-banner-image'
           src={urlFor(image).url()}
           alt={_id}
-          width={250}
-          height={250}
+          width={500}
+          height={600}
         />
       </div>
     </div>

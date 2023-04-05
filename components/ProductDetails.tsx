@@ -61,7 +61,7 @@ export default function ProductDetails({product: {image,_id, name, details, pric
           <div className='quantity'>
             <h3>Quantidade:</h3>
             <p className='quantity-desc'>
-              <span className='minus' onClick={() => ''}><RemoveIcon /></span>
+              <span className='minus' onClick={() => ''}><RemoveIcon/></span>
               <span className='num' onClick={() => ''}>0</span>
               <span className='plus' onClick={() => ''}><AddIcon /></span>
 
