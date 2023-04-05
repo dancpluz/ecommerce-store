@@ -10,8 +10,9 @@ interface Product extends Base {
   image: Image[];
   name: string;
   slug: Slug;
-  price: string;
+  price: number;
   details: string;
+  quantity: number;
 }
 
 interface Banner extends Base {
@@ -40,4 +41,25 @@ interface Reference {
 interface Slug {
   _type: 'slug';
   current: string;
+}
+
+type StateContextType = {
+  showCart: boolean;
+  cartItems: Product[];
+  totalPrice: number;
+  totalQuantities: number;
+  qty: number;
+  incQty: () => void;
+  decQty: () => void;
+  onAdd: (product: Product, quantity: number) => void;
+};
+
+declare namespace NodeJS {
+  interface ProcessEnv {
+    STRIPE_SECRET_KEY: string;
+    SANITY_API_TOKEN: string;
+    NEXT_PUBLIC_SANITY_API_VERSION: string;
+    NEXT_PUBLIC_SANITY_DATASET: string;
+    NEXT_PUBLIC_SANITY_PROJECT_ID: string;
+  }
 }

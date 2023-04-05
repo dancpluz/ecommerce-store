@@ -1,6 +1,8 @@
-import '../styles/globals.css'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
+import '../styles/globals.css';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import { StateContext } from '../context/StateContext';
+
 
 export const metadata = {
   title: 'Dropshit',
@@ -15,11 +17,14 @@ export default function RootLayout({
   return (
     <html>
       <body className='layout'>
-        <Navbar />
-        <main className='main-container'>
-          {children}
-        </main>
-        <Footer /> 
+        
+        <StateContext>
+          <Navbar />
+          <main className='main-container'>
+            {children}
+          </main>
+          <Footer /> 
+        </StateContext>
       </body>
     </html>
   )

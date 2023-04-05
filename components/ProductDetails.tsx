@@ -1,12 +1,10 @@
 'use client';
 
 import { useState } from 'react';
+import { useStateContext } from '../context/StateContext'
 import Image from 'next/image';
 import Product from './Product';
-import RemoveIcon from '@mui/icons-material/Remove';
-import AddIcon from '@mui/icons-material/Add';
-import StarIcon from '@mui/icons-material/Star';
-import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
+import { Remove, Add, Star, StarBorderOutlined } from '@mui/icons-material/';
 import urlFor from '../lib/urlFor';
 
 type Props = {
@@ -15,8 +13,9 @@ type Props = {
   slug: string;
 };
 
-export default function ProductDetails({product: {image,_id, name, details, price}, slug, products}: Props) {
+export default function ProductDetails({product, product: {image,_id, name, details, price}, slug, products}: Props) {
   const [index, setIndex] = useState(0);
+  const { decQty, incQty, qty, onAdd } = useStateContext();
 
   return (
     <>
@@ -47,11 +46,11 @@ export default function ProductDetails({product: {image,_id, name, details, pric
           <h1>{name}</h1>
           <div className='reviews'>
             <div>
-              <StarIcon />
-              <StarIcon />
-              <StarBorderOutlinedIcon />
-              <StarBorderOutlinedIcon />
-              <StarBorderOutlinedIcon />
+              <Star />
+              <Star />
+              <StarBorderOutlined />
+              <StarBorderOutlined />
+              <StarBorderOutlined />
             </div>
             <p>(20)</p>
           </div>
@@ -61,14 +60,20 @@ export default function ProductDetails({product: {image,_id, name, details, pric
           <div className='quantity'>
             <h3>Quantidade:</h3>
             <p className='quantity-desc'>
+<<<<<<< HEAD
               <span className='minus' onClick={() => ''}><RemoveIcon/></span>
               <span className='num' onClick={() => ''}>0</span>
               <span className='plus' onClick={() => ''}><AddIcon /></span>
 
+=======
+              <span className='minus' onClick={decQty}><Remove fontSize="small" /></span>
+              <span className='num'>{qty}</span>
+              <span className='plus' onClick={incQty}><Add /></span>
+>>>>>>> 7e5463daa07cd9b5df7f85ab89505c87cd8934e1
             </p>
           </div>
           <div className='buttons'>
-            <button type='button' className='add-to-cart' onClick={() => ''}>Adicionar à Sacola</button>
+            <button type='button' className='add-to-cart' onClick={() => onAdd(product, qty)}>Adicionar à Sacola</button>
             <button type='button' className='buy-now' onClick={() => ''}>Comprar Agora</button>
           </div>
         </div>

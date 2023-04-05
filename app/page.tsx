@@ -1,4 +1,4 @@
-import { FooterBanner, Footer, HeroBanner } from '../components';
+import { FooterBanner, HeroBanner } from '../components';
 import { client } from '../lib/sanity.client';
 import { previewData } from 'next/headers';
 import { groq } from 'next-sanity';
