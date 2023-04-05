@@ -13,6 +13,7 @@ interface Product extends Base {
   price: number;
   details: string;
   quantity: number;
+  sex: string;
 }
 
 interface Banner extends Base {

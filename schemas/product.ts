@@ -14,6 +14,32 @@ export default {
             }
         },
         {
+            name:'sex',
+            title:'Sexo',
+            description:'Categoria da peça, masc ou fem.',
+            type:'string',
+            options:{
+                list:[
+                    {title:'Feminino', value: 'female'},
+                    {title:'Masculino', value: 'male'},
+                    {title:'Unissex', value:'unissex'}
+                ]
+            }
+        },
+        {
+            name:'quality',
+            title:'Qualidade',
+            description:'Qualidade da peça',
+            type:'string',
+            options:{
+                list:[
+                    {title:'Usado', value: '0'},
+                    {title:'Semi-novo', value: '1'},
+                    {title:'Novo', value: '2'}
+                ]
+            }
+        },
+        {
             name: 'name',
             title: 'Nome',
             description: 'Nome do produto',

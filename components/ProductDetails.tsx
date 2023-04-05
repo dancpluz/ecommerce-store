@@ -13,7 +13,7 @@ type Props = {
   slug: string;
 };
 
-export default function ProductDetails({product, product: {image,_id, name, details, price}, slug, products}: Props) {
+export default function ProductDetails({product, product: {image,_id, name, details, price, sex}, slug, products}: Props) {
   const [index, setIndex] = useState(0);
   const { decQty, incQty, qty, onAdd } = useStateContext();
 
@@ -54,15 +54,16 @@ export default function ProductDetails({product, product: {image,_id, name, deta
             </div>
             <p>(20)</p>
           </div>
+          <p>{sex}</p>
           <h4>Detalhes: </h4>
           <p>{details}</p>
           <p className='price'>R${price}</p>
           <div className='quantity'>
             <h3>Quantidade:</h3>
             <p className='quantity-desc'>
-              <span className='minus' onClick={() => ''}><RemoveIcon/></span>
-              <span className='num' onClick={() => ''}>0</span>
-              <span className='plus' onClick={() => ''}><AddIcon /></span>
+              <span className='minus' onClick={decQty}><Remove fontSize="small" /></span>
+              <span className='num'>{qty}</span>
+              <span className='plus' onClick={incQty}><Add /></span>
             </p>
           </div>
           <div className='buttons'>

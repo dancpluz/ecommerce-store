@@ -12,21 +12,6 @@ import getStripe from '../lib/getStripe';
 export default function Cart() {
   const cartRef = useRef(null);
   const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuantity, onRemove } = useStateContext();
-  const handleCheckout = () => {
-    const stripe = await getStripe();
-
-    const response = await fetch('/api/stripe', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(cartItems),
-    });
-
-    if (response.statusCode === 500) return;
-
-    const data = null;
-  }
 
   return (
     <div className='cart-wrapper' ref={cartRef}>
