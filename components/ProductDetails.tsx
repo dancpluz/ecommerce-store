@@ -4,8 +4,10 @@ import { useState } from 'react';
 import { useStateContext } from '../context/StateContext'
 import Image from 'next/image';
 import Product from './Product';
-import { Remove, Add, Star, StarBorderOutlined } from '@mui/icons-material/';
+import { Remove, Add, RadioButtonUnchecked, RadioButtonChecked } from '@mui/icons-material/';
 import urlFor from '../lib/urlFor';
+import Rating from '@mui/material/Rating';
+import { styled } from '@mui/material/styles';
 
 type Props = {
   product: Product;
@@ -13,10 +15,23 @@ type Props = {
   slug: string;
 };
 
-export default function ProductDetails({product, product: {image,_id, name, details, price}, slug, products}: Props) {
+export default function ProductDetails({product, product: {image,_id, name, details, quality, price}, slug, products}: Props) {
   const [index, setIndex] = useState(0);
   const { decQty, incQty, qty, onAdd } = useStateContext();
-
+  const qualityLabels: Record<string, string> = {
+    '1': 'Usado',
+    '2': 'Semi-Novo',
+    '3': 'Novo'
+  }
+  const StyledRating = styled(Rating)({
+    '& .MuiRating-iconFilled': {
+      color: '#ff6d75',
+    },
+    '& .MuiRating-iconEmpty': {
+      color: '#ff6d75',
+    },
+  });
+  
   return (
     <>
       <div className='product-detail-container'>
@@ -46,13 +61,9 @@ export default function ProductDetails({product, product: {image,_id, name, deta
           <h1>{name}</h1>
           <div className='reviews'>
             <div>
-              <Star />
-              <Star />
-              <StarBorderOutlined />
-              <StarBorderOutlined />
-              <StarBorderOutlined />
+              <StyledRating name='quality' value={parseInt(quality)} max={3} readOnly icon={<RadioButtonChecked />} emptyIcon={<RadioButtonUnchecked />} />
             </div>
-            <p>(20)</p>
+            <p>{qualityLabels[quality]}</p>
           </div>
           <h4>Detalhes: </h4>
           <p>{details}</p>
@@ -60,7 +71,7 @@ export default function ProductDetails({product, product: {image,_id, name, deta
           <div className='quantity'>
             <h3>Quantidade:</h3>
             <p className='quantity-desc'>
-              <span className='minus' onClick={decQty}><Remove fontSize="small" /></span>
+              <span className='minus' onClick={decQty}><Remove fontSize='small' /></span>
               <span className='num'>{qty}</span>
               <span className='plus' onClick={incQty}><Add /></span>
             </p>

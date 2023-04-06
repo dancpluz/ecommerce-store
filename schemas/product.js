@@ -20,6 +20,42 @@ export default {
             type: 'string',
         },
         {
+            name: 'slug',
+            title: 'Slug (produto/"slug")',
+            description: 'Nome dps da barra no url ex: https://ruadebaixo.com/produtos/camiseta-poggers',
+            type: 'slug',
+            options: {
+                source: 'name',
+                maxLength: 90,
+            }
+        },
+        {
+            name: 'sex',
+            title: 'Sexo',
+            description: 'Sexo da peça, masc ou fem.',
+            type: 'string',
+            options: {
+                list: [
+                    { title: 'Feminino', value: 'female' },
+                    { title: 'Masculino', value: 'male' },
+                    { title: 'Unissex', value: 'unissex' }
+                ]
+            }
+        },
+        {
+            name: 'quality',
+            title: 'Qualidade',
+            description: 'Qualidade da peça',
+            type: 'string',
+            options: {
+                list: [
+                    { title: 'Usado', value: '1' },
+                    { title: 'Semi-novo', value: '2' },
+                    { title: 'Novo', value: '3' }
+                ]
+            }
+        },
+        {
             name: 'category',
             title: 'Categoria',
             description: 'Categoria da peça, especificar se é calça, camisa etc',
@@ -40,17 +76,8 @@ export default {
             title: 'Tamanho',
             description: 'Tamanho da peça(pp,p,m,g,gg)',
             type: 'string',
-        },
-
-        {
-            name: 'slug',
-            title: 'Slug (produto/"slug")',
-            description: 'Nome dps da barra no url ex: https://ruadebaixo.com/produtos/camiseta-poggers',
-            type: 'slug',
-            options: {
-                source: 'name',
-                maxLength: 90,
-            }
+            validation: Rule =>
+                Rule.uppercase().error('Em maiúsculo')
         },
         {
             name: 'price',

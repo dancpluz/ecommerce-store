@@ -21,18 +21,32 @@ export default async function handler(
           { shipping_rate: 'shr_1MsYigGgVUPhLE7viicCttTT' },
           { shipping_rate: 'shr_1MsYjXGgVUPhLE7v6ABUYhEV' }
         ],
-        line_items: [
-          {
-            // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-            price: '{{PRICE_ID}}',
-            quantity: 1,
-          },
-        ],
-        
+        line_items: req.body.map((item:Product) => {
+          const img = item.image[0].asset._ref;
+          const newImage = img.replace('image-', 'https://cdn.sanity.io/images/4k9edjgg/production/').replace('-webp', '.webp');
+          console.log('IMAGE',newImage)
+
+          return {
+            price_data: {
+              currency: 'brl',
+              product_data: {
+                name: item.name,
+                images: [newImage],
+              },
+              unit_amount: item.price * 100,
+            },
+            adjustable_quantity: {
+              enabled: true,
+              minimun: 1,
+            },
+            quantity: item.quantity
+          }
+        }),
         success_url: `${req.headers.origin}/?success=true`,
         cancel_url: `${req.headers.origin}/?canceled=true`,
       });
-      res.redirect(303, session.url);
+    
+      res.status(200).json(session)
     } catch (err: any) {
       res.status(err.statusCode || 500).json(err.message);
     }

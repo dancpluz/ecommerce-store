@@ -10,6 +10,9 @@ interface Product extends Base {
   image: Image[];
   name: string;
   slug: Slug;
+  sex: string;
+  quality: string;
+  size: string;
   price: number;
   details: string;
   quantity: number;

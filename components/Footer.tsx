@@ -9,7 +9,9 @@ export default function Footer() {
     <footer className='footer-container'>
       <p>Todos os direitos reservados Dropshit © 2023</p>
       <div>
-        <InstagramIcon />
+        <Link href='https://www.instagram.com/ruadebaixoloja/'>
+          <InstagramIcon />
+        </Link>
         <TwitterIcon />
       </div>
     </footer>
