@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import Stripe from 'stripe';
+import urlFor from '../../lib/urlFor';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: '2022-11-15',
@@ -22,22 +23,20 @@ export default async function handler(
           { shipping_rate: 'shr_1MsYjXGgVUPhLE7v6ABUYhEV' }
         ],
         line_items: req.body.map((item:Product) => {
-          const img = item.image[0].asset._ref;
-          const newImage = img.replace('image-', 'https://cdn.sanity.io/images/4k9edjgg/production/').replace('-webp', '.webp');
-          console.log('IMAGE',newImage)
+          const img = urlFor(item.image[0]).url();
 
           return {
             price_data: {
               currency: 'brl',
               product_data: {
                 name: item.name,
-                images: [newImage],
+                images: [img],
               },
               unit_amount: item.price * 100,
             },
             adjustable_quantity: {
               enabled: true,
-              minimun: 1,
+              minimum: 1,
             },
             quantity: item.quantity
           }
