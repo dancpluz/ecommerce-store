@@ -66,3 +66,4 @@ declare namespace NodeJS {
     NEXT_PUBLIC_SANITY_PROJECT_ID: string;
   }
 }
+

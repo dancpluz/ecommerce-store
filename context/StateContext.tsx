@@ -13,6 +13,9 @@ type StateContextType = {
   decQty: () => void;
   onAdd: (product: Product, quantity: number) => void;
   setShowCart: React.Dispatch<React.SetStateAction<boolean>>;
+  setTotalQuantities: React.Dispatch<React.SetStateAction<number>>;
+  setCartItems: React.Dispatch<React.SetStateAction<Product[]>>;
+  setTotalPrice: React.Dispatch<React.SetStateAction<number>>;
   toggleCartItemQuantity: (id: string, value: string) => void;
   onRemove: (product: Product) => void;
 };
@@ -27,6 +30,9 @@ const Context = createContext<StateContextType>({
   decQty: () => { },
   onAdd: () => { },
   setShowCart: () => { },
+  setTotalQuantities: () => { },
+  setCartItems: () => { },
+  setTotalPrice: () => { },
   toggleCartItemQuantity: () => { },
   onRemove: () => { }
 });
@@ -121,8 +127,11 @@ export const StateContext = ({ children }: Props) => {
         showCart,
         setShowCart,
         cartItems,
+        setCartItems,
         totalPrice,
+        setTotalPrice,
         totalQuantities,
+        setTotalQuantities,
         qty,
         incQty,
         decQty,
