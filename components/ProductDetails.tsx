@@ -17,7 +17,11 @@ type Props = {
 
 export default function ProductDetails({product, product: {image,_id, name, details, quality, price}, slug, products}: Props) {
   const [index, setIndex] = useState(0);
-  const { decQty, incQty, qty, onAdd } = useStateContext();
+  const { decQty, incQty, qty, onAdd, setShowCart } = useStateContext();
+  const handleBuyNow = () => {
+    onAdd(product, qty);
+    setShowCart(true);
+  }
   const qualityLabels: Record<string, string> = {
     '1': 'Usado',
     '2': 'Semi-Novo',
@@ -46,7 +50,7 @@ export default function ProductDetails({product, product: {image,_id, name, deta
         </div>
         <div className='small-images-container'>
           {image?.map((item, i) => (
-            <a onMouseEnter={() => setIndex(i)}>
+            <a key={i} onMouseEnter={() => setIndex(i)}>
               <Image
                 className={i === index ? 'small-image selected-image' : 'small-image'}
                 src={urlFor(item).url()}
@@ -73,12 +77,12 @@ export default function ProductDetails({product, product: {image,_id, name, deta
             <p className='quantity-desc'>
               <span className='minus' onClick={decQty}><Remove fontSize='small' /></span>
               <span className='num'>{qty}</span>
-              <span className='plus' onClick={incQty}><Add /></span>
+              <span className='plus' onClick={incQty}><Add fontSize='small' /></span>
             </p>
           </div>
           <div className='buttons'>
             <button type='button' className='add-to-cart' onClick={() => onAdd(product, qty)}>Adicionar à Sacola</button>
-            <button type='button' className='buy-now' onClick={() => ''}>Comprar Agora</button>
+            <button type='button' className='buy-now' onClick={handleBuyNow}>Comprar Agora</button>
           </div>
         </div>
       </div>
