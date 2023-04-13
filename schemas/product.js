@@ -10,7 +10,7 @@ export default {
             type: 'array',
             of: [{ type: 'image' }],
             option: {
-                hotspot: 'true',
+                hotspot: true,
             }
         },
         {
@@ -30,17 +30,10 @@ export default {
             }
         },
         {
-            name: 'sex',
-            title: 'Sexo',
-            description: 'Sexo da peça, masc ou fem.',
+            name: 'details',
+            title: 'Detalhes',
+            description: 'Descrição do produto, medida da cintura, tipo de tecido etc...',
             type: 'string',
-            options: {
-                list: [
-                    { title: 'Feminino', value: 'female' },
-                    { title: 'Masculino', value: 'male' },
-                    { title: 'Unissex', value: 'unissex' }
-                ]
-            }
         },
         {
             name: 'quality',
@@ -52,7 +45,8 @@ export default {
                     { title: 'Usado', value: '1' },
                     { title: 'Semi-novo', value: '2' },
                     { title: 'Novo', value: '3' }
-                ]
+                ],
+                layout: 'radio'
             }
         },
         {
@@ -62,11 +56,11 @@ export default {
             type: 'string',
             options: {
                 list: [
-                    { title: 'Camiseta', value: 'shirt' },
-                    { title: 'Boné', value: 'cap' },
-                    { title: 'Calça', value: 'pants' },
-                    { title: 'Shorts', value: 'shorts' },
-                    { title: 'Acessório', value: 'acessories' },
+                    { title: 'Camiseta',value: 'Camiseta' },
+                    { title: 'Boné',value: 'Boné' },
+                    { title: 'Calça',value: 'Calça' },
+                    { title: 'Shorts',value: 'Shorts' },
+                    { title: 'Acessório',value: 'Acessório' },
                 ]
 
             }
@@ -77,19 +71,13 @@ export default {
             description: 'Tamanho da peça(pp,p,m,g,gg)',
             type: 'string',
             validation: Rule =>
-                Rule.uppercase().error('Em maiúsculo')
+                Rule.uppercase().error('Somente letras em maíusculo')
         },
         {
             name: 'price',
             title: 'Preço',
             description: 'preço do produto',
             type: 'number',
-        },
-        {
-            name: 'details',
-            title: 'Detalhes',
-            description: 'Descrição do produto, medida da cintura, tipo de tecido etc...',
-            type: 'string',
         }
     ]
 }
