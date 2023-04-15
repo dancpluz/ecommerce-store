@@ -10,7 +10,6 @@ interface Product extends Base {
   image: Image[];
   name: string;
   slug: Slug;
-  sex: string;
   quality: string;
   size: string;
   price: number;
@@ -19,21 +18,16 @@ interface Product extends Base {
 }
 
 interface Banner extends Base {
-  image: Image[];
-  buttonText: string;
-  product: string;
+  main_image: Image;
+  images: Image[];
   desc: string;
-  smallText: string;
-  midText: string;
-  largeText1: string;
-  largeText2: string;
-  discount: string;
-  saleTime: string;
 }
 
 interface Image {
   _type: 'image';
   asset: Reference;
+  product: Reference;
+  svg: string;
 }
 
 interface Reference {
@@ -45,17 +39,6 @@ interface Slug {
   _type: 'slug';
   current: string;
 }
-
-type StateContextType = {
-  showCart: boolean;
-  cartItems: Product[];
-  totalPrice: number;
-  totalQuantities: number;
-  qty: number;
-  incQty: () => void;
-  decQty: () => void;
-  onAdd: (product: Product, quantity: number) => void;
-};
 
 declare namespace NodeJS {
   interface ProcessEnv {

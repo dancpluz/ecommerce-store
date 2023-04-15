@@ -154,7 +154,7 @@ span.text-red {
   background-color: #dcdcdc;
   border-radius: 15px;
   position: relative;
-  height: 500px;
+  height: 700px;
   line-height: 0.9;
   width: 100%;
 
@@ -189,13 +189,46 @@ span.text-red {
   text-transform: uppercase;
 }
 
-.hero-banner-image {
-  position: absolute;
-  top: 0%;
-  right: 20%;
-  width: 450px;
-  height: 450px;
+.banner-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+      /* Set your maximum image width here */
 }
+
+.absolute {
+  position: absolute;
+}
+
+.banner-image {
+  width: 100%;
+  height: auto;
+}
+
+.svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  }
+
+.overlay1 {
+  z-index: 1;
+}
+
+.overlay2 {
+  z-index: 2;
+}
+
+.overlay3 {
+  z-index: 3;
+}
+
+.blur{
+    filter: blur(2px);
+}
+
 
 
 .desc {

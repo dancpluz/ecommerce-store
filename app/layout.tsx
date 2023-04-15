@@ -18,13 +18,15 @@ export default function RootLayout({
     <html>
       <body className='layout'>
         
-        <StateContext>
-          <Navbar />
+        {/*<StateContext>
+          <Navbar /> */}
           <main className='main-container'>
             {children}
           </main>
+        {/*
           <Footer /> 
         </StateContext>
+        */}
       </body>
     </html>
   )

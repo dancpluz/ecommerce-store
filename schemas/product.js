@@ -76,7 +76,7 @@ export default {
         {
             name: 'price',
             title: 'Preço',
-            description: 'preço do produto',
+            description: 'Preço do produto',
             type: 'number',
         }
     ]

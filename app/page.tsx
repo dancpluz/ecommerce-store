@@ -1,4 +1,4 @@
-import { FooterBanner, HeroBanner } from '../components';
+import { HeroBanner } from '../components';
 import { client } from '../lib/sanity.client';
 import { previewData } from 'next/headers';
 import { groq } from 'next-sanity';
@@ -32,7 +32,7 @@ export default async function HomePage() {
         );
     }
 
-    const products = await client.fetch(queryProduct);
+    //const products = await client.fetch(queryProduct);
     const banner = await client.fetch(queryBanner);
 
     return (
@@ -44,9 +44,10 @@ export default async function HomePage() {
                 <p>Comando Vermelho</p>
             </div>
 
-            <ProductList products={products}/>
+            {
+            //<ProductList products={products}/>
+            }
             
-            <FooterBanner footerBanner={banner && banner[0]} />
         </>
     );
 }
