@@ -39,13 +39,13 @@ export default async function HomePage() {
         <>
             <HeroBanner banner={banner[0]} />
 
-            <div className='products-heading'>
+            <div className='text-green-200'>
                 <h2>Best Selling Products</h2>
-                <p>Comando Vermelho</p>
+                <p>Teste</p>
             </div>
 
-            {
-            //<ProductList products={products}/>
+            
+            {//<ProductList products={products} />
             }
             
         </>

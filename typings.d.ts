@@ -27,7 +27,8 @@ interface Image {
   _type: 'image';
   asset: Reference;
   product: Reference;
-  svg: string;
+  x: number;
+  y: number;
 }
 
 interface Reference {

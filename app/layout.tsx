@@ -16,15 +16,15 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <body className='layout'>
-        
-        {/*<StateContext>
-          <Navbar /> */}
-          <main className='main-container'>
+      <body>
+        {/*
+        <StateContext> */}
+          <Navbar />
+          <main>
             {children}
           </main>
-        {/*
-          <Footer /> 
+          {/*
+          <Footer />
         </StateContext>
         */}
       </body>

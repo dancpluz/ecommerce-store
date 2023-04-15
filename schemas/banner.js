@@ -21,8 +21,9 @@ export default {
                     title: 'Imagem Somente da Peça',
                     fields: [
                         { type: 'reference',to: [{ type: 'product' }],name: 'product',title: 'Produto' },
-                        { type: 'string',name: 'text',title: 'Texto' },
-                        { type: 'string',name: 'svg',title: 'Código SVG' },
+                        { type: 'string', name: 'text',title: 'Texto' },
+                        { type: 'number', name: 'x',title: 'X' },
+                        { type: 'number', name: 'y',title: 'Y' }
                     ]
                 }],
         },

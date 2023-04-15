@@ -9,7 +9,7 @@ import { Toaster } from 'react-hot-toast';
 export default function Navbar() {
   const { showCart, setShowCart, totalQuantities } = useStateContext();
   return (
-    <header className="navbar-container">
+    <header className="fixed h-16">
       <Toaster />
       <p className='logo'>
         <Link href='/'>Dropshit</Link>
