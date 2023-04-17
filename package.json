@@ -19,6 +19,7 @@
     "@types/lodash.get": "^4.4.7",
     "@types/slug": "^5.0.3",
     "@types/stripe": "^8.0.417",
+    "@types/styled-components": "^5.1.26",
     "@types/tailwindcss": "^3.1.0",
     "canvas-confetti": "^1.6.0",
     "lodash.get": "^4.4.2",

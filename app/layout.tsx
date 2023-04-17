@@ -1,8 +1,13 @@
-import '../styles/globals.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { StateContext } from '../context/StateContext';
+import { createGlobalStyle } from 'styled-components';
 
+const GlobalStyles = createGlobalStyle`
+  body{
+    padding: 0;
+  }
+`;
 
 export const metadata = {
   title: 'Dropshit',
@@ -15,20 +20,24 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html>
-      <body>
-        {/*
-        <StateContext> */}
-          <Navbar />
-          <main>
-            {children}
-          </main>
-          {/*
-          <Footer />
-        </StateContext>
-        */}
-      </body>
-    </html>
+    <>
+      <GlobalStyles>
+        <html>
+          <body>
+            {/*
+            <StateContext> */}
+              <Navbar />
+              <main>
+                {children}
+              </main>
+              {/*
+              <Footer />
+            </StateContext>
+            */}
+          </body>
+        </html>
+      </GlobalStyles>
+    </>
   )
 }
 
